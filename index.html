@@ -1,0 +1,137 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet"> 
+    
+      
+    <style>
+      
+      .calculator{
+      	width:300px;
+        height:470px;
+        position:absolute;
+        top:0;
+        right:0;
+        bottom:0;
+        left:0;
+        margin:auto;
+        margin-top:50px;
+        box-shadow:1px 1px 5px black;
+       
+      }
+      .first{
+      	height:20px;
+        
+        background-color:#00bcd4;
+      }
+      .second{
+      	height:150px;
+        background-color:white;
+        position:relative;
+       
+      }
+      .third{
+      	display:flex;
+        background-color:#434343;
+       height:300px;
+        color:white;
+        text-align:center;
+      }
+      
+      body{
+      	background-color:#76fdda;
+        font-family:Roboto;
+        font-weight:300;
+      }
+      .symbolContainer{
+      	background-color:#636363;
+        width:70px;
+      }	
+       .numberContainer{
+       	width:230px;
+         display:flex;
+         flex-wrap:wrap;
+         
+       } 
+      .numberContainer > div{
+      	width:calc(230px/3);
+        height:calc(300px/4);
+       
+        line-height:calc(300px/4);
+        font-size:30px;
+       
+      }
+   	
+      .symbolContainer > div{
+      	height:calc(300px/5);
+        line-height:calc(300px/5);
+        font-size:20px;
+      } 	
+   		.deleteBtn{
+   			font-size:15px !important;
+   		}
+     .input{
+     	width:calc(100% - 10px);
+       overflow:hidden;
+       text-align:right;
+     	position:absolute;
+       top:30px;
+       right:10px;
+       font-size:50px;
+       opacity:0.4;
+     } 
+      
+      	
+      
+      
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <div class="first"></div>
+      <div class="second">
+        <div class="input"></div>
+      </div>
+      <div class="third">
+        <div class="numberContainer">
+        	<div onclick="typeNumber(7)">7</div>
+        	<div onclick="typeNumber(8)">8</div>
+        	<div onclick="typeNumber(9)">9</div>
+        	<div onclick="typeNumber(4)">4</div>
+        	<div onclick="typeNumber(5)">5</div>
+        	<div onclick="typeNumber(6)">6</div>
+        	<div onclick="typeNumber(1)">1</div>
+        	<div onclick="typeNumber(2)">2</div>
+        	<div onclick="typeNumber(3)">3</div>
+        	<div onclick="typeNumber(.)">.</div>
+          <div onclick="typeNumber(0)">0</div>
+          <div>=</div>
+        </div>
+        <div class="symbolContainer">
+        	<div class="deleteBtn" onclick="removeNumber()">DEL</div>
+        	<div>&#247;</div>
+        	<div>x</div>
+        	<div>-</div>
+        	<div>+</div>
+        </div>
+      </div>
+       
+        	
+      </div>
+  </body>
+  <script>
+    
+  	function typeNumber(n){
+      var i = document.querySelector(".input").innerHTML;
+     document.querySelector(".input").innerHTML = i + n; 
+    }
+    function removeNumber(){
+      var i = document.querySelector(".input").innerHTML;
+      i = i.split("")
+      i.pop()
+      i = i.join("")
+      document.querySelector(".input").innerHTML = i
+    }
+    
+  </script>
+  
+</html>
